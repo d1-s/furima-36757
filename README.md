@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column             | Type       | Options                        |
-| ------------------ | ---------- | ------------------------------ |
-| item_name          | string     | null: false                    |
-| item_info          | text       | null: false                    |
-| category_id        | integer    | null: false                    |
-| item_status_id     | integer    | null: false                    |
-| delivery_fee_id    | integer    | null: false                    |
-| prefecture_id      | integer    | null: false                    |
-| send_days_id       | integer    | null: false                    |
-| price              | integer    | null: false                    |
-| user_id            | references | null: false, foreign_key: true |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| item_name        | string     | null: false                    |
+| item_info        | text       | null: false                    |
+| category_id      | integer    | null: false                    |
+| item_status_id   | integer    | null: false                    |
+| delivery_fee_id  | integer    | null: false                    |
+| prefecture_id    | integer    | null: false                    |
+| send_days_id     | integer    | null: false                    |
+| price            | integer    | null: false                    |
+| user             | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -39,17 +39,16 @@
 
 ## orders テーブル
 
-| Column            | Type       | Options                        |
-|------------------ | ---------- | ------------------------------ |
-| user_id           | references | null: false, foreign_key: true |
-| item_id           | references | null: false, foreign_key: true |
-| delivery_info_id  | references | null: false, foreign_key: true |
+| Column        | Type       | Options                        |
+|-------------- | ---------- | ------------------------------ |
+| user          | references | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :delivery_address
+- has_one :delivery_info
 
 ## delivery_info テーブル
 
@@ -61,7 +60,8 @@
 | address            | string     | null: false                    |
 | building           | string     |                                |
 | tel_number         | integer    | null: false                    |
+| order              | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_one :order
+- belongs_to :order
