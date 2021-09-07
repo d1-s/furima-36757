@@ -59,7 +59,7 @@
 | municipalities     | string     | null: false                    |
 | address            | string     | null: false                    |
 | building           | string     |                                |
-| tel_number         | integer    | null: false                    |
+| tel_number         | string     | null: false                    |
 | order              | references | null: false, foreign_key: true |
 
 ### Association
