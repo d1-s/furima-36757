@@ -8,7 +8,6 @@ class User < ApplicationRecord
   NAME_REGEX = /\A[ぁ-んァ-ヴ一-龥]+\z/u
   KANA_REGEX = /\A[ァ-ヴー]+\z/u
   validates :nickname, presence: true
-  validates :email, uniqueness: true
   validates :password, format: { with: PASSWORD_REGEX }
   validates :last_name, presence: true, format: { with: NAME_REGEX }
   validates :first_name, presence: true, format: { with: NAME_REGEX }
