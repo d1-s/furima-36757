@@ -7,11 +7,17 @@ class User < ApplicationRecord
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
   NAME_REGEX = /\A[ぁ-んァ-ヴ一-龥]+\z/u
   KANA_REGEX = /\A[ァ-ヴー]+\z/u
-  validates :nickname, presence: true
+  with_options presence: true do
+    validates :nickname
+    validates :birthday
+  end
   validates :password, format: { with: PASSWORD_REGEX }
-  validates :last_name, presence: true, format: { with: NAME_REGEX }
-  validates :first_name, presence: true, format: { with: NAME_REGEX }
-  validates :last_name_kana, presence: true, format: { with: KANA_REGEX }
-  validates :first_name_kana, presence: true, format: { with: KANA_REGEX }
-  validates :birthday, presence: true
+  with_options presence: true, format: { with: NAME_REGEX } do
+    validates :last_name
+    validates :first_name
+  end
+  with_options presence: true, format: { with: KANA_REGEX } do
+    validates :last_name_kana
+    validates :first_name_kana
+  end
 end
