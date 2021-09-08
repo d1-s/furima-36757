@@ -52,7 +52,7 @@ RSpec.describe User, type: :model do
       it 'パスワードが5文字では登録できない' do
         @user.password = '1234a'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
       it 'パスワードとパスワード（確認）が不一致だと登録できない' do
         @user.password = '12345a'
@@ -65,19 +65,19 @@ RSpec.describe User, type: :model do
         another_user = FactoryBot.build(:user)
         another_user.email = @user.email
         another_user.valid?
-        expect(@user.errors.full_messages).to include()
+        expect(@user.errors.full_messages).to include
       end
       it 'お名前（全角）は、全角でないと登録できない' do
         @user.last_name = 'hankaku'
         @user.first_name = 'hankaku'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name is invalid", "First name is invalid")
+        expect(@user.errors.full_messages).to include('Last name is invalid', 'First name is invalid')
       end
       it 'お名前カナ（全角）は、全角カタカナでないと登録できない' do
         @user.last_name_kana = '漢字'
         @user.first_name_kana = 'ひらがな'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name kana is invalid", "First name kana is invalid")
+        expect(@user.errors.full_messages).to include('Last name kana is invalid', 'First name kana is invalid')
       end
     end
   end
