@@ -29,27 +29,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Item info can't be blank")
       end
       it 'category_idが「---」では出品できない' do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it 'item_status_idが「---」では出品できない' do
-        @item.item_status_id = '1'
+        @item.item_status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Item status can't be blank")
       end
       it 'delivery_fee_idが「---」では出品できない' do
-        @item.delivery_fee_id = '1'
+        @item.delivery_fee_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery fee can't be blank")
       end
       it 'prefecture_idが「---」では出品できない' do
-        @item.prefecture_id = '1'
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it 'send_days_idが「---」では出品できない' do
-        @item.send_days_id = '1'
+        @item.send_days_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Send days can't be blank")
       end
