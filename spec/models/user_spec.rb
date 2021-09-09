@@ -63,24 +63,24 @@ RSpec.describe User, type: :model do
       it 'パスワードは英語のみでは登録できない' do
         @user.password = 'abcdef'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid")
+        expect(@user.errors.full_messages).to include('Password is invalid')
       end
       it 'パスワードは数字のみでは登録できない' do
         @user.password = '123456'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid")
+        expect(@user.errors.full_messages).to include('Password is invalid')
       end
       it 'パスワードは全角では登録できない' do
         @user.password = '１２３４５ａ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is invalid")
+        expect(@user.errors.full_messages).to include('Password is invalid')
       end
       it '重複したメールアドレスが存在する場合登録できない' do
         @user.save
         another_user = FactoryBot.build(:user)
         another_user.email = @user.email
         another_user.valid?
-        expect(another_user.errors.full_messages).to include("Email has already been taken", "Email has already been taken")
+        expect(another_user.errors.full_messages).to include('Email has already been taken', 'Email has already been taken')
       end
       it 'お名前（全角）は、全角でないと登録できない' do
         @user.last_name = 'hankaku'
