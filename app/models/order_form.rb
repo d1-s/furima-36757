@@ -13,7 +13,7 @@ class OrderForm
 
   def save
     Order.create(user_id: user.id, item_id: item.id)
-    DeliveryInfo.create(postal_code: postal_code, prefecture_id: prefecture_id, municipalities: municipalities, address: address, building: building, tel_number: tel_number, order_id: order.id)
+    Delivery.create(postal_code: postal_code, prefecture_id: prefecture_id, municipalities: municipalities, address: address, building: building, tel_number: tel_number, order_id: order.id)
   end
 
 end
