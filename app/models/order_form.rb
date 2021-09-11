@@ -9,7 +9,6 @@ class OrderForm
     validates :tel_number
   end
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :building
 
   def save
     Order.create(user_id: user.id, item_id: item.id)
