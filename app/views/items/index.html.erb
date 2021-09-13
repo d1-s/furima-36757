@@ -133,13 +133,11 @@
             <div class='item-img-content'>
               <%= link_to image_tag(item.image, class: "item-img"), item_path(item.id) %>
 
-              <%# 商品が売れていればsold outを表示しましょう %>
-              <%# 購入機能実装後に記述 unless item  %>
+              <% if item.order.present? %>
                 <div class='sold-out'>
                   <span>Sold Out!!</span>
                 </div>
-              <%# //購入機能実装後に記述 end %>
-              <%# //商品が売れていればsold outを表示しましょう %>
+              <% end %>
 
             </div>
             <div class='item-info'>

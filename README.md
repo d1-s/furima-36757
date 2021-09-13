@@ -50,7 +50,7 @@
 - belongs_to :item
 - has_one :delivery_info
 
-## delivery_info テーブル
+## deliveries テーブル
 
 | Column             | Type       | Options                        |
 |------------------- | ---------- | ------------------------------ |
