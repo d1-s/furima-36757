@@ -10,7 +10,6 @@ RSpec.describe OrderForm, type: :model do
   end
 
   describe '商品の購入' do
-
     context '商品を購入できるとき' do
       it '全ての値が正しく入力されていれば購入できる' do
         expect(@order_form).to be_valid

@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
   def edit
     redirect_to root_path if current_user.id != @item.user_id || @item.order.present?
   end
-  
+
   def update
     if @item.update(item_params)
       redirect_to item_path
@@ -51,4 +51,3 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 end
-
