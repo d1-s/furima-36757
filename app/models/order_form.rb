@@ -8,6 +8,8 @@ class OrderForm
     validates :address
     validates :tel_number, format: { with: /\A0\d{9,10}\z/ }
     validates :token
+    validates :user_id
+    validates :item_id
   end
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
 
