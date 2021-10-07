@@ -13,9 +13,14 @@ app/assets/stylesheets/items/new.css %>
 
     <%# 商品画像 %>
     <div class="img-upload">
-      <div class="weight-bold-text">
-        商品画像
-        <span class="indispensable">必須</span>
+      <div class="img-right">
+        <div class="weight-bold-text">
+          商品画像
+          <span class="indispensable">必須</span>
+        </div>
+        <div id="image-list"> <%# プレビューの表示 %>
+        </div>
+        <%= image_tag @item.image, class: 'image-preview' if @item.image.present? %>
       </div>
       <div class="click-upload">
         <p>
